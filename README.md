@@ -1,6 +1,6 @@
 ## Welcome to GitHub Pages
 
-I'm Kamryn. These are files for this my class , Reporting in the Digital Age!
+I'm Kamryn. These are files from my class , Reporting in the Digital Age!
 
 Take a look at my work from the semester below!
 
