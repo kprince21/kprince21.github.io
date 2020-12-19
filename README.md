@@ -1,13 +1,13 @@
 ## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/kprince21/kprince21.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+I'm Kamryn. These are files for this my class , Reporting in the Digital Age!
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Take a look at my work from the semester below!
 
 ### 1st R Assignment
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
+In our first assignment, we analyzed impeachment information using a dataframe on House Democrats and Republicans
+under the Trump Administration. 
 ```markdown
 Syntax highlighted code block
 
