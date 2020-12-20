@@ -1,0 +1,59 @@
+#first we’ll load our libraries library(tidyverse) library(lubridate)
+
+run this to load the data for this assignment
+it will create a dataframe called “impeach,” with all House Democrats
+impeach <- read_csv(“https://docs.google.com/spreadsheets/d/e/2PACX-1vRh8d5JaDqBtByzNw2JZF3idaACobDhhk-p7chJoktA0HawELHFOvjQOqCpzGA4MGONvPlR7GASqW-K/pub?gid=1765341510&single=true&output=csv”)
+
+FOR EACH OF THE QUESTIONS BELOW, WRITE YOUR WORKING R CODE TO RETURN THE REQUESTED RESULTS
+USE COMMENTS (PREFACED BY THE #) BEFORE THE WORKING CODE TO EXPLAIN WHAT YOU’RE DOING FOR EACH STEP
+1) The column “for_impeachment” indicates whether the member has publicly called for
+an impeachment inquiry. Filter to return only the ones where the answer is NO.
+view data, then filter and check impeachment for “NO”
+view(joined_impeachment_0927_Sheet1) filter(.data = joined_impeachment_0927_Sheet1,for_impeachment == “NO”)
+
+2) Filter to return only results where a member is both against impeachment, and comes from a
+district that President Trump won in 2016 (which is noted in the “p16winningparty” column)
+viewed data and inserted two conditions
+view(joined_impeachment_0927_Sheet1) filter(.data = joined_impeachment_0927_Sheet1,for_impeachment == “NO”,p16winningparty == “R”)
+
+3) Filter for only results where a member is against impeachment, comes from a
+district that President Trump won in 2016 (which is noted in the “p16winningparty” column),
+and also comes from a district that Mitt Romney won in 2012 (“p12winningparty”).
+view data, added additional condition checking “p12winningparty” was also “R”
+view(joined_impeachment_0927_Sheet1) filter(.data = joined_impeachment_0927_Sheet1,for_impeachment == “NO”,p16winningparty == “R”,p12winningparty == “R”)
+
+4) Filter for only results from September 2019 where a member is a YES for impeachment.
+view data, filter column date/month = “9” and year “2019”
+view(joined_impeachment_0927_Sheet1) filter(.data = joined_impeachment_0927_Sheet1,date_month == “9”,date_year == “2019”)
+
+4) Filter for only results where a member is a YES for impeachment and is from a district
+where Clinton won more than 70 percent of the vote in 2016 (found in column “clinton_percent”)
+view data, insert for impeachment and clinton’s percentage either = to or > than 70%
+view(joined_impeachment_0927_Sheet1) filter(.data = joined_impeachment_0927_Sheet1, for_impeachment == “YES”, clinton_percent>=70)
+
+5) Sort the entire dataframe based on the percentage of a district that has a
+bachelor’s degree or higher (“pct_bachelors”), from lowest to highest
+view data, use arrange function for “pct_bachelors” for lowest value first
+view(joined_impeachment_0927_Sheet1) arrange(.data = joined_impeachment_0927_Sheet1,(pct_bachelors))
+
+6) Sort the just those who are NO on impeachment based on the percentage of a district that has a
+bachelor’s degree or higher (“pct_bachelors”), from lowest to highest
+view(joined_impeachment_0927_Sheet1) arrange(.data = joined_impeachment_0927_Sheet1,(pct_bachelors)) newdata = joined_impeachment_0927_Sheet1, for_impeachment ==
+
+7) Sort the just those who are NO on impeachment based on the percentage of a district that has a
+bachelor’s degree or higher (“pct_bachelors”), from lowest to highest.
+Then filter those records by only those whose bachelor’s percentage is below the national average (found
+in the “pct_bachelors_compared_to_national” column).
+8) Filter for only members from New Jersey who are NO on impeachment
+view data, check for state of NJ who are “NO” for impeachment
+view(joined_impeachment_0927_Sheet1) filter(.data = joined_impeachment_0927_Sheet1, state == “NJ”, for_impeachment == “NO”)
+
+9) Filter for those who were YES on impeachment, with a declared date prior to 2019. So only
+those with dates before 2019. Then sort those so that the highest Clinton vote percentages are
+at the top.
+view(joined_impeachment_0927_Sheet1) newdata<-filter(.data = joined_impeachment_0927_Sheet1, for_impeachment == “YES”, date_year<2019) arrange((desc(clinton_percent))
+
+10) Answer this question with a single numeric answer, and show the R code you
+used to reach that answer: How many members in the dataset who are holdouts on impeachment
+comes from districts with a GDP below the national figure?
+view(joined_impeachment_0927_Sheet1) filter(.data = joined_impeachment_0927_Sheet1,for_impeachment == “NO”, gdp_above_national == “BELOW”)
