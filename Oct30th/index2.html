@@ -1,0 +1,334 @@
+October30th
+Kamryn Prince
+
+12/20/2020
+
+# FOR EACH OF THE QUESTIONS BELOW, WRITE YOUR WORKING R CODE TO RETURN THE REQUESTED RESULTS
+# USE COMMENTS (PREFACED BY THE #) BEFORE THE WORKING CODE TO EXPLAIN WHAT YOU'RE DOING FOR EACH STEP
+
+
+
+# 1) The column "for_impeachment" indicates whether the member has publicly called for
+# an impeachment inquiry. Filter to return only the ones where the answer is NO.    
+# view data, then filter and check impeachment for "NO" 
+  
+impeach %>% 
+  filter(for_impeachment == "NO")
+## # A tibble: 26 x 32
+##    for_impeachment last_name first_name middle_name party state district
+##    <chr>           <chr>     <chr>      <chr>       <chr> <chr> <chr>   
+##  1 NO              Allred    Colin      <NA>        D     TX    32      
+##  2 NO              Brindisi  Anthony    <NA>        D     NY    22      
+##  3 NO              Bustos    Cheri      <NA>        D     IL    17      
+##  4 NO              Cuellar   Henry      <NA>        D     TX    28      
+##  5 NO              Cunningh… Joe        <NA>        D     SC    1       
+##  6 NO              Davids    Sharice    <NA>        D     KS    3       
+##  7 NO              Gabbard   Tulsi      <NA>        D     HI    2       
+##  8 NO              Golden    Jared      <NA>        D     ME    2       
+##  9 NO              Gonzalez  Vicente    <NA>        D     TX    15      
+## 10 NO              Horn      Kendra     <NA>        D     OK    5       
+## # … with 16 more rows, and 25 more variables: date_exact <date>,
+## #   date_approx_month <date>, date_comb <date>, date_month <dbl>,
+## #   date_year <dbl>, margin_flag_2018 <chr>, flip_2018 <chr>, house_dist <chr>,
+## #   keyrace_rating <chr>, median_income <dbl>,
+## #   median_income_compared_to_national <chr>, median_age <dbl>,
+## #   median_age_compared_to_national <chr>, pct_nonwhite <dbl>,
+## #   pct_nonwhite_compared_to_national <chr>, pct_bachelors <dbl>,
+## #   pct_bachelors_compared_to_national <chr>, rural_pop_above20pct <chr>,
+## #   gdp_above_national <chr>, clinton_percent <dbl>, trump_percent <dbl>,
+## #   obama_percent <dbl>, romney_percent <dbl>, p16winningparty <chr>,
+## #   p12winningparty <chr>
+# 2) Filter to return only results where a member is both against impeachment, and comes from a 
+# district that President Trump won in 2016 (which is noted in the "p16winningparty" column)
+# viewed data and inserted two conditions 
+
+impeach %>% 
+  filter(for_impeachment == "NO",
+         p16winningparty == "R")
+## # A tibble: 15 x 32
+##    for_impeachment last_name first_name middle_name party state district
+##    <chr>           <chr>     <chr>      <chr>       <chr> <chr> <chr>   
+##  1 NO              Brindisi  Anthony    <NA>        D     NY    22      
+##  2 NO              Bustos    Cheri      <NA>        D     IL    17      
+##  3 NO              Cunningh… Joe        <NA>        D     SC    1       
+##  4 NO              Golden    Jared      <NA>        D     ME    2       
+##  5 NO              Horn      Kendra     <NA>        D     OK    5       
+##  6 NO              Kind      Ron        <NA>        D     WI    3       
+##  7 NO              Lamb      Conor      <NA>        D     PA    17      
+##  8 NO              Lee       Susie      <NA>        D     NV    3       
+##  9 NO              McAdams   Ben        <NA>        D     UT    4       
+## 10 NO              McBath    Lucy       <NA>        D     GA    6       
+## 11 NO              O'Haller… Tom        <NA>        D     AZ    1       
+## 12 NO              Peterson  Collin     C.          D     MN    7       
+## 13 NO              Rose      Max        <NA>        D     NY    11      
+## 14 NO              Torres S… Xochitl    <NA>        D     NM    2       
+## 15 NO              Van Drew  Jefferson  <NA>        D     NJ    2       
+## # … with 25 more variables: date_exact <date>, date_approx_month <date>,
+## #   date_comb <date>, date_month <dbl>, date_year <dbl>,
+## #   margin_flag_2018 <chr>, flip_2018 <chr>, house_dist <chr>,
+## #   keyrace_rating <chr>, median_income <dbl>,
+## #   median_income_compared_to_national <chr>, median_age <dbl>,
+## #   median_age_compared_to_national <chr>, pct_nonwhite <dbl>,
+## #   pct_nonwhite_compared_to_national <chr>, pct_bachelors <dbl>,
+## #   pct_bachelors_compared_to_national <chr>, rural_pop_above20pct <chr>,
+## #   gdp_above_national <chr>, clinton_percent <dbl>, trump_percent <dbl>,
+## #   obama_percent <dbl>, romney_percent <dbl>, p16winningparty <chr>,
+## #   p12winningparty <chr>
+# 3) Filter for only results where a member is against impeachment, comes from a 
+# district that President Trump won in 2016 (which is noted in the "p16winningparty" column),
+# and also comes from a district that Mitt Romney won in 2012 ("p12winningparty").
+# view data, added additional condition checking "p12winningparty" was also "R"
+ 
+impeach %>% 
+  filter(for_impeachment == "NO",
+         p16winningparty == "R",
+         p12winningparty == "R")
+## # A tibble: 9 x 32
+##   for_impeachment last_name first_name middle_name party state district
+##   <chr>           <chr>     <chr>      <chr>       <chr> <chr> <chr>   
+## 1 NO              Brindisi  Anthony    <NA>        D     NY    22      
+## 2 NO              Cunningh… Joe        <NA>        D     SC    1       
+## 3 NO              Horn      Kendra     <NA>        D     OK    5       
+## 4 NO              Lamb      Conor      <NA>        D     PA    17      
+## 5 NO              McAdams   Ben        <NA>        D     UT    4       
+## 6 NO              McBath    Lucy       <NA>        D     GA    6       
+## 7 NO              O'Haller… Tom        <NA>        D     AZ    1       
+## 8 NO              Peterson  Collin     C.          D     MN    7       
+## 9 NO              Torres S… Xochitl    <NA>        D     NM    2       
+## # … with 25 more variables: date_exact <date>, date_approx_month <date>,
+## #   date_comb <date>, date_month <dbl>, date_year <dbl>,
+## #   margin_flag_2018 <chr>, flip_2018 <chr>, house_dist <chr>,
+## #   keyrace_rating <chr>, median_income <dbl>,
+## #   median_income_compared_to_national <chr>, median_age <dbl>,
+## #   median_age_compared_to_national <chr>, pct_nonwhite <dbl>,
+## #   pct_nonwhite_compared_to_national <chr>, pct_bachelors <dbl>,
+## #   pct_bachelors_compared_to_national <chr>, rural_pop_above20pct <chr>,
+## #   gdp_above_national <chr>, clinton_percent <dbl>, trump_percent <dbl>,
+## #   obama_percent <dbl>, romney_percent <dbl>, p16winningparty <chr>,
+## #   p12winningparty <chr>
+# 4) Filter for only results from September 2019 where a member is a YES for impeachment. 
+# view data, filter column date/month = "9" and year "2019"
+
+impeach %>%
+  filter(for_impeachment == "YES",
+         date_month == 9,
+         date_year == 2019)
+## # A tibble: 76 x 32
+##    for_impeachment last_name first_name middle_name party state district
+##    <chr>           <chr>     <chr>      <chr>       <chr> <chr> <chr>   
+##  1 YES             Axne      Cynthia    <NA>        D     IA    3       
+##  2 YES             Bass      Karen      <NA>        D     CA    37      
+##  3 YES             Bera      Ami        <NA>        D     CA    7       
+##  4 YES             Bishop    Sanford    D.          D     GA    2       
+##  5 YES             Cartwrig… Matt       <NA>        D     PA    8       
+##  6 YES             Case      Ed         <NA>        D     HI    1       
+##  7 YES             Castor    Kathy      <NA>        D     FL    14      
+##  8 YES             Cisneros  Gilbert    <NA>        D     CA    39      
+##  9 YES             Clyburn   James      E.          D     SC    6       
+## 10 YES             Cooper    Jim        <NA>        D     TN    5       
+## # … with 66 more rows, and 25 more variables: date_exact <date>,
+## #   date_approx_month <date>, date_comb <date>, date_month <dbl>,
+## #   date_year <dbl>, margin_flag_2018 <chr>, flip_2018 <chr>, house_dist <chr>,
+## #   keyrace_rating <chr>, median_income <dbl>,
+## #   median_income_compared_to_national <chr>, median_age <dbl>,
+## #   median_age_compared_to_national <chr>, pct_nonwhite <dbl>,
+## #   pct_nonwhite_compared_to_national <chr>, pct_bachelors <dbl>,
+## #   pct_bachelors_compared_to_national <chr>, rural_pop_above20pct <chr>,
+## #   gdp_above_national <chr>, clinton_percent <dbl>, trump_percent <dbl>,
+## #   obama_percent <dbl>, romney_percent <dbl>, p16winningparty <chr>,
+## #   p12winningparty <chr>
+# 5) Filter for only results where a member is a YES for impeachment and is from a district
+# where Clinton won more than 70 percent of the vote in 2016 (found in column "clinton_percent")
+# view data, insert for impeachment and clinton's percentage either = to or > than 70%
+
+impeach %>%
+filter(for_impeachment == "YES",
+      clinton_percent > 70)
+## # A tibble: 55 x 32
+##    for_impeachment last_name first_name middle_name party state district
+##    <chr>           <chr>     <chr>      <chr>       <chr> <chr> <chr>   
+##  1 YES             Barragan  Nanette    <NA>        D     CA    44      
+##  2 YES             Bass      Karen      <NA>        D     CA    37      
+##  3 YES             Beyer     Donald     <NA>        D     VA    8       
+##  4 YES             Boyle     Brendan    <NA>        D     PA    2       
+##  5 YES             Brown     Anthony    <NA>        D     MD    4       
+##  6 YES             Cardenas  Tony       <NA>        D     CA    29      
+##  7 YES             Clarke    Yvette     D.          D     NY    9       
+##  8 YES             Clay      William    Lacy        D     MO    1       
+##  9 YES             Cohen     Steve      <NA>        D     TN    9       
+## 10 YES             Cummings  Elijah     E.          D     MD    7       
+## # … with 45 more rows, and 25 more variables: date_exact <date>,
+## #   date_approx_month <date>, date_comb <date>, date_month <dbl>,
+## #   date_year <dbl>, margin_flag_2018 <chr>, flip_2018 <chr>, house_dist <chr>,
+## #   keyrace_rating <chr>, median_income <dbl>,
+## #   median_income_compared_to_national <chr>, median_age <dbl>,
+## #   median_age_compared_to_national <chr>, pct_nonwhite <dbl>,
+## #   pct_nonwhite_compared_to_national <chr>, pct_bachelors <dbl>,
+## #   pct_bachelors_compared_to_national <chr>, rural_pop_above20pct <chr>,
+## #   gdp_above_national <chr>, clinton_percent <dbl>, trump_percent <dbl>,
+## #   obama_percent <dbl>, romney_percent <dbl>, p16winningparty <chr>,
+## #   p12winningparty <chr>
+# 6) Sort the entire dataframe based on the percentage of a district that has a 
+# bachelor's degree or higher ("pct_bachelors"), from lowest to highest
+# view data, use arrange function for "pct_bachelors" for lowest value first 
+
+impeach%>%
+ arrange(pct_bachelors)
+## # A tibble: 235 x 32
+##    for_impeachment last_name first_name middle_name party state district
+##    <chr>           <chr>     <chr>      <chr>       <chr> <chr> <chr>   
+##  1 YES             Cox       TJ         <NA>        D     CA    21      
+##  2 YES             Roybal-A… Lucille    <NA>        D     CA    40      
+##  3 YES             Garcia    Sylvia     <NA>        D     TX    29      
+##  4 YES             Veasey    Marc       <NA>        D     TX    33      
+##  5 YES             Costa     Jim        <NA>        D     CA    16      
+##  6 YES             Barragan  Nanette    <NA>        D     CA    44      
+##  7 YES             Serrano   Jose       E.          D     NY    15      
+##  8 YES             Vargas    Juan       <NA>        D     CA    51      
+##  9 YES             Gallego   Ruben      <NA>        D     AZ    7       
+## 10 YES             Tlaib     Rashida    <NA>        D     MI    13      
+## # … with 225 more rows, and 25 more variables: date_exact <date>,
+## #   date_approx_month <date>, date_comb <date>, date_month <dbl>,
+## #   date_year <dbl>, margin_flag_2018 <chr>, flip_2018 <chr>, house_dist <chr>,
+## #   keyrace_rating <chr>, median_income <dbl>,
+## #   median_income_compared_to_national <chr>, median_age <dbl>,
+## #   median_age_compared_to_national <chr>, pct_nonwhite <dbl>,
+## #   pct_nonwhite_compared_to_national <chr>, pct_bachelors <dbl>,
+## #   pct_bachelors_compared_to_national <chr>, rural_pop_above20pct <chr>,
+## #   gdp_above_national <chr>, clinton_percent <dbl>, trump_percent <dbl>,
+## #   obama_percent <dbl>, romney_percent <dbl>, p16winningparty <chr>,
+## #   p12winningparty <chr>
+# 6) Sort the just those who are NO on impeachment based on the percentage of a district that has a 
+# bachelor's degree or higher ("pct_bachelors"), from lowest to highest
+  
+impeach%>%
+  filter(for_impeachment == "NO") %>%
+   arrange(pct_bachelors)
+## # A tibble: 26 x 32
+##    for_impeachment last_name first_name middle_name party state district
+##    <chr>           <chr>     <chr>      <chr>       <chr> <chr> <chr>   
+##  1 NO              Cuellar   Henry      <NA>        D     TX    28      
+##  2 NO              Bustos    Cheri      <NA>        D     IL    17      
+##  3 NO              Wilson    Frederica  <NA>        D     FL    24      
+##  4 NO              Gonzalez  Vicente    <NA>        D     TX    15      
+##  5 NO              Sewell    Terri      <NA>        D     AL    7       
+##  6 NO              Lawson    Al         <NA>        D     FL    5       
+##  7 NO              Johnson   Eddie      Bernice     D     TX    30      
+##  8 NO              Horsford  Steven     <NA>        D     NV    4       
+##  9 NO              Torres S… Xochitl    <NA>        D     NM    2       
+## 10 NO              Peterson  Collin     C.          D     MN    7       
+## # … with 16 more rows, and 25 more variables: date_exact <date>,
+## #   date_approx_month <date>, date_comb <date>, date_month <dbl>,
+## #   date_year <dbl>, margin_flag_2018 <chr>, flip_2018 <chr>, house_dist <chr>,
+## #   keyrace_rating <chr>, median_income <dbl>,
+## #   median_income_compared_to_national <chr>, median_age <dbl>,
+## #   median_age_compared_to_national <chr>, pct_nonwhite <dbl>,
+## #   pct_nonwhite_compared_to_national <chr>, pct_bachelors <dbl>,
+## #   pct_bachelors_compared_to_national <chr>, rural_pop_above20pct <chr>,
+## #   gdp_above_national <chr>, clinton_percent <dbl>, trump_percent <dbl>,
+## #   obama_percent <dbl>, romney_percent <dbl>, p16winningparty <chr>,
+## #   p12winningparty <chr>
+# 7) Sort the just those who are NO on impeachment based on the percentage of a district that has a 
+# bachelor's degree or higher ("pct_bachelors"), from lowest to highest.
+# Then filter those records by only those whose bachelor's percentage is below the national average (found
+# in the "pct_bachelors_compared_to_national" column).
+
+impeach%>%
+  filter(for_impeachment == "NO") %>%
+   arrange(pct_bachelors) %>%
+  filter(pct_bachelors_compared_to_national == "BELOW")
+## # A tibble: 19 x 32
+##    for_impeachment last_name first_name middle_name party state district
+##    <chr>           <chr>     <chr>      <chr>       <chr> <chr> <chr>   
+##  1 NO              Cuellar   Henry      <NA>        D     TX    28      
+##  2 NO              Bustos    Cheri      <NA>        D     IL    17      
+##  3 NO              Wilson    Frederica  <NA>        D     FL    24      
+##  4 NO              Gonzalez  Vicente    <NA>        D     TX    15      
+##  5 NO              Sewell    Terri      <NA>        D     AL    7       
+##  6 NO              Lawson    Al         <NA>        D     FL    5       
+##  7 NO              Johnson   Eddie      Bernice     D     TX    30      
+##  8 NO              Horsford  Steven     <NA>        D     NV    4       
+##  9 NO              Torres S… Xochitl    <NA>        D     NM    2       
+## 10 NO              Peterson  Collin     C.          D     MN    7       
+## 11 NO              Golden    Jared      <NA>        D     ME    2       
+## 12 NO              O'Haller… Tom        <NA>        D     AZ    1       
+## 13 NO              Brindisi  Anthony    <NA>        D     NY    22      
+## 14 NO              Kind      Ron        <NA>        D     WI    3       
+## 15 NO              Van Drew  Jefferson  <NA>        D     NJ    2       
+## 16 NO              Gabbard   Tulsi      <NA>        D     HI    2       
+## 17 NO              McAdams   Ben        <NA>        D     UT    4       
+## 18 NO              Schrader  Kurt       <NA>        D     OR    5       
+## 19 NO              Horn      Kendra     <NA>        D     OK    5       
+## # … with 25 more variables: date_exact <date>, date_approx_month <date>,
+## #   date_comb <date>, date_month <dbl>, date_year <dbl>,
+## #   margin_flag_2018 <chr>, flip_2018 <chr>, house_dist <chr>,
+## #   keyrace_rating <chr>, median_income <dbl>,
+## #   median_income_compared_to_national <chr>, median_age <dbl>,
+## #   median_age_compared_to_national <chr>, pct_nonwhite <dbl>,
+## #   pct_nonwhite_compared_to_national <chr>, pct_bachelors <dbl>,
+## #   pct_bachelors_compared_to_national <chr>, rural_pop_above20pct <chr>,
+## #   gdp_above_national <chr>, clinton_percent <dbl>, trump_percent <dbl>,
+## #   obama_percent <dbl>, romney_percent <dbl>, p16winningparty <chr>,
+## #   p12winningparty <chr>
+# 8) Filter for only members from New Jersey who are NO on impeachment
+# view data, check for state of NJ who are "NO" for impeachment
+
+impeach %>%
+filter(for_impeachment == "NO", 
+  state == "NJ")
+## # A tibble: 1 x 32
+##   for_impeachment last_name first_name middle_name party state district
+##   <chr>           <chr>     <chr>      <chr>       <chr> <chr> <chr>   
+## 1 NO              Van Drew  Jefferson  <NA>        D     NJ    2       
+## # … with 25 more variables: date_exact <date>, date_approx_month <date>,
+## #   date_comb <date>, date_month <dbl>, date_year <dbl>,
+## #   margin_flag_2018 <chr>, flip_2018 <chr>, house_dist <chr>,
+## #   keyrace_rating <chr>, median_income <dbl>,
+## #   median_income_compared_to_national <chr>, median_age <dbl>,
+## #   median_age_compared_to_national <chr>, pct_nonwhite <dbl>,
+## #   pct_nonwhite_compared_to_national <chr>, pct_bachelors <dbl>,
+## #   pct_bachelors_compared_to_national <chr>, rural_pop_above20pct <chr>,
+## #   gdp_above_national <chr>, clinton_percent <dbl>, trump_percent <dbl>,
+## #   obama_percent <dbl>, romney_percent <dbl>, p16winningparty <chr>,
+## #   p12winningparty <chr>
+# 9) Filter for those who were YES on impeachment, with a declared date prior to 2019. So only
+# those with dates before 2019.  Then sort those so that the highest Clinton vote percentages are 
+# at the top.   
+
+impeach %>%
+  filter(for_impeachment == "YES",
+        date_year < 2019) %>%
+  arrange(desc(clinton_percent))
+## # A tibble: 10 x 32
+##    for_impeachment last_name first_name middle_name party state district
+##    <chr>           <chr>     <chr>      <chr>       <chr> <chr> <chr>   
+##  1 YES             Evans     Dwight     <NA>        D     PA    3       
+##  2 YES             Gomez     Jimmy      <NA>        D     CA    34      
+##  3 YES             Clarke    Yvette     D.          D     NY    9       
+##  4 YES             Fudge     Marcia     L.          D     OH    11      
+##  5 YES             Green     Al         <NA>        D     TX    9       
+##  6 YES             Cohen     Steve      <NA>        D     TN    9       
+##  7 YES             Moore     Gwen       <NA>        D     WI    4       
+##  8 YES             Omar      Ilhan      <NA>        D     MN    5       
+##  9 YES             Sherman   Brad       <NA>        D     CA    30      
+## 10 YES             Huffman   Jared      <NA>        D     CA    2       
+## # … with 25 more variables: date_exact <date>, date_approx_month <date>,
+## #   date_comb <date>, date_month <dbl>, date_year <dbl>,
+## #   margin_flag_2018 <chr>, flip_2018 <chr>, house_dist <chr>,
+## #   keyrace_rating <chr>, median_income <dbl>,
+## #   median_income_compared_to_national <chr>, median_age <dbl>,
+## #   median_age_compared_to_national <chr>, pct_nonwhite <dbl>,
+## #   pct_nonwhite_compared_to_national <chr>, pct_bachelors <dbl>,
+## #   pct_bachelors_compared_to_national <chr>, rural_pop_above20pct <chr>,
+## #   gdp_above_national <chr>, clinton_percent <dbl>, trump_percent <dbl>,
+## #   obama_percent <dbl>, romney_percent <dbl>, p16winningparty <chr>,
+## #   p12winningparty <chr>
+# 10) Answer this question with a single numeric answer, and show the R code you
+# used to reach that answer: How many members in the dataset who are holdouts on impeachment
+# comes from districts with a GDP below the national figure
+
+impeach %>%
+  filter(for_impeachment == "NO",
+    gdp_above_national == "BELOW") %>%
+nrow()
+## [1] 19

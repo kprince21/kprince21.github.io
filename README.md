@@ -1,35 +1,17 @@
 ## Welcome to GitHub Pages
 
-I'm Kamryn. These are files from my class , Reporting in the Digital Age!
+I'm Kamryn. I am GW senior taking Reporting in the Digital Age. 
+These are files from my class!
 
 Take a look at my work from the semester below!
 
 ### 1st R Assignment
 
-In our first assignment, we analyzed impeachment information using a dataframe on House Democrats and Republicans
-under the Trump Administration. 
+In our first assignment, we analyzed impeachment information using a dataframe on House Democrats and Republicans under the Trump Administration. 
 
-[see it here]()
+[see it here](https://kprince21.github.io/October30th)
 
 ```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
 ### Biden's Transitions
 
