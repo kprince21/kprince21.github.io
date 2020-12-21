@@ -9,7 +9,7 @@ Take a look at my work from the semester below!
 
 In our first assignment, we analyzed impeachment information using a dataframe on House Democrats and Republicans under the Trump Administration. 
 
-[see it here](https://kprince21.github.io/October30th)
+[see it here](https://kprince21.github.io/Oct30th)
 
 ```markdown
 
