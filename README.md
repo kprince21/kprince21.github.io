@@ -15,7 +15,9 @@ In our first assignment, we analyzed impeachment information using a dataframe o
 
 ### Biden's Transitions
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kprince21/kprince21.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Below, we completed an assignment where we looked at data of Biden's transitions of WH senior staff over the past couple of weeks. 
+
+[see it here]((https://kprince21.github.io/BidenTransitions)
 
 ### Biden Flexdashboard
 
