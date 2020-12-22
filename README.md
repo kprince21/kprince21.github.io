@@ -21,4 +21,6 @@ Below, we completed an assignment where we looked at data of Biden's transitions
 
 ### Biden Flexdashboard
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Biden's flexdashboard is an overview of changes to WH senior staff and agency names over the past couple of weeks. We've been using updated information from the website to put this data together.
+
+[see it here ]
